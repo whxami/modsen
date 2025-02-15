@@ -2,18 +2,15 @@ import './App.css';
 import Footer from './components/footer/footer.tsx';
 import Header from './components/header/header.tsx';
 import SearchBar from './components/searchBar/searchBar.tsx';
-import ImageCard from './components/imageCard/imageCard.tsx';
+
+import ImagesList from './components/imagesList/imagesList.tsx';
 
 function App() {
     return (
         <>
             <Header />
             <SearchBar placeholder="Search art, artist, work..." />
-            <ImageCard
-                image={'zxczxc'}
-                description={'zxczxczxc'}
-                isActive={false}
-            />
+            <ImagesList />
             <Footer></Footer>
         </>
     );

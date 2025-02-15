@@ -13,7 +13,7 @@ interface imageCardProps {
 const ImageCard: FC<imageCardProps> = (props) => {
     return (
         <div className={styles.cardContainer}>
-            <img src={testImage} alt={'modsenlogoo'} height={445} width={400} />
+            <img src={testImage} alt={'modsenlogo'} height={445} width={400} />
             <div className={styles.descriptionContainer}>
                 <div className={styles.textContainer}>
                     <p className={styles.blackText}>

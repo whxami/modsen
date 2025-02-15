@@ -1,5 +1,4 @@
 @use '@styles/colors/colors' as *;
-@use '@styles/fonts/fonts' as *;
 
 .header {
     height: 130px;
@@ -21,6 +20,5 @@
     align-items: center;
     justify-content: center;
     color: $white;
-    font-family: $interFont;
     gap: 4px;
 }

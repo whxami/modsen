@@ -1,0 +1,50 @@
+@use "@styles/colors/colors" as *;
+
+.mainContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 420px;
+  border: solid 1px $grayBorder;
+  padding: 25px 13px;
+
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.goldText {
+  color: $lightOrange;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.blackText {
+  color: $mainGray;
+  &:first-child {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.imageInfo{
+  display: flex;
+  gap:16px;
+}
+
+.bookmarkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: $bookmarkBackground;
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,10 @@
+@use "@styles/colors/colors" as *;
+
+.listContainer{
+  display: flex;
+  gap:60px;
+}
+
+.activePage{
+  background-color: $orange;
+}
