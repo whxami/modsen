@@ -7,7 +7,7 @@ function App() {
     return (
         <>
             <Header />
-            <SearchBar placeholder="Search art, artist, work..."/>
+            <SearchBar placeholder="Search art, artist, work..." />
             <Footer></Footer>
         </>
     );
