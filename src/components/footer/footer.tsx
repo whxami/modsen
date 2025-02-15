@@ -16,7 +16,9 @@ const Footer: FC = () => {
                 <img
                     src={modsenLogo}
                     alt="modsenLogo"
-                    width={165} height={60} />
+                    width={165}
+                    height={60}
+                />
             </div>
         </footer>
     );
