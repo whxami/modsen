@@ -5,7 +5,7 @@ import Header from './components/header/header.tsx';
 function App() {
     return (
         <>
-            <Header/>
+            <Header />
             <Footer></Footer>
         </>
     );
