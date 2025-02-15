@@ -1,0 +1,23 @@
+.header{
+  height: 130px;
+  display: flex;
+  background: $grayGradient;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagesContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 65%;
+}
+
+.bookmarkContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:$white;
+  font-family: $interFont;
+  gap: 4px;
+}
