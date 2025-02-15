@@ -1,60 +1,58 @@
-@use "@styles/colors/colors" as *;
+@use '@styles/colors/colors' as *;
 
-.cardContainer{
-  position: relative;
-  height: 515px;
-  width: 400px;
+.cardContainer {
+    position: relative;
+    height: 515px;
+    width: 400px;
 }
 
-.descriptionContainer{
-  padding: 17px 24px;
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  display: flex;
-  justify-self: center;
-  border: 1px solid $grayBorder;
-  background-color: $white;
-  height: 130px;
-  width: 330px;
-  justify-content: space-between;
-  align-items: center;
-  transform: translateY(-50%);
-  transform-origin: bottom center;
+.descriptionContainer {
+    padding: 17px 24px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    display: flex;
+    justify-self: center;
+    border: 1px solid $grayBorder;
+    background-color: $white;
+    height: 130px;
+    width: 330px;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+    transform-origin: bottom center;
 }
 
-.bookmarkContainer{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: $bookmarkBackground;
-  &:hover{
-    cursor: pointer;
-  }
+.bookmarkContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: $bookmarkBackground;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
-.textContainer{
-  display: flex;
-  flex-direction: column;
-
+.textContainer {
+    display: flex;
+    flex-direction: column;
 }
 
-.goldText{
-  color:$lightOrange;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.blackText{
-  color:$mainGray;
-  &:first-child {
-    margin-bottom: 10px;
-    font-size: 18px;
+.goldText {
+    color: $lightOrange;
+    margin-bottom: 20px;
     font-weight: bold;
-  }
+    font-size: 15px;
 }
 
+.blackText {
+    color: $mainGray;
+    &:first-child {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+}

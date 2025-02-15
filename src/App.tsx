@@ -9,7 +9,11 @@ function App() {
         <>
             <Header />
             <SearchBar placeholder="Search art, artist, work..." />
-            <ImageCard image={"zxczxc"} description={"zxczxczxc"} isActive={false}/>
+            <ImageCard
+                image={'zxczxc'}
+                description={'zxczxczxc'}
+                isActive={false}
+            />
             <Footer></Footer>
         </>
     );
