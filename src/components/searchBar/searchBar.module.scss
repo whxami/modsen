@@ -1,29 +1,29 @@
-@use "@styles/colors/colors" as *;
+@use '@styles/colors/colors' as *;
 
-.searchContainer{
-  border-radius: 16px;
-  background: $lightGray;
-  height: 65px;
-  display: flex;
-  align-items: center;
-  width: 300px;
-  justify-content: space-between;
-  padding: 0 16px;
+.searchContainer {
+    border-radius: 16px;
+    background: $lightGray;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    justify-content: space-between;
+    padding: 0 16px;
 }
 
-.searchBar{
-  background: transparent;
-  border:none;
-  color:$grayText;
-  font-size:16px;
-  width:80%;
-  &:focus{
-    outline:none;
-  }
+.searchBar {
+    background: transparent;
+    border: none;
+    color: $grayText;
+    font-size: 16px;
+    width: 80%;
+    &:focus {
+        outline: none;
+    }
 }
 
-.searchIcon{
-  &:hover{
-    cursor: pointer;
-  }
+.searchIcon {
+    &:hover {
+        cursor: pointer;
+    }
 }
