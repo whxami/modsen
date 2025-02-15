@@ -1,10 +1,9 @@
 @use '@styles/colors/colors' as *;
-@use '@styles/fonts/fonts' as *;
 
-.header{
+.footer{
   height: 130px;
   display: flex;
-  background: $grayGradient;
+  background: $white;
   align-items: center;
   justify-content: center;
 }
@@ -16,11 +15,3 @@
   width: 65%;
 }
 
-.bookmarkContainer{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color:$white;
-  font-family: $interFont;
-  gap: 4px;
-}
