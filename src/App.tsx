@@ -1,18 +1,12 @@
 import './App.css';
-import Footer from './components/footer/footer.tsx';
-import Header from './components/header/header.tsx';
-import SearchBar from './components/searchBar/searchBar.tsx';
-
-import ImagesList from './components/imagesList/imagesList.tsx';
+import AppRouter from './utils/routeConfig/AppRouter.tsx';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
     return (
-        <>
-            <Header />
-            <SearchBar placeholder="Search art, artist, work..." />
-            <ImagesList />
-            <Footer></Footer>
-        </>
+        <BrowserRouter>
+            <AppRouter />
+        </BrowserRouter>
     );
 }
 
