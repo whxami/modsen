@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { FC } from 'react';
-import Header from '../../components/header/header.tsx';
-import Footer from '../../components/footer/footer.tsx';
+import Header from '@components/header/header.tsx';
+import Footer from '@components/footer/footer.tsx';
 
 const MainLayout: FC = () => {
     return (

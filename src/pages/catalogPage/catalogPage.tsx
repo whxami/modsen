@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styles from './catalogPage.module.scss';
-import SearchBar from '../../components/searchBar/searchBar.tsx';
-import PaginationList from '../../components/paginationList/paginationList.tsx';
-import ImagesList from '../../components/imagesList/imagesList.tsx';
+import SearchBar from '@components/searchBar/searchBar.tsx';
+import PaginationList from '@components/paginationList/paginationList.tsx';
+import ImagesList from '@components/imagesList/imagesList.tsx';
 
 const catalogPage: FC = () => {
     return (

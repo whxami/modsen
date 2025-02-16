@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Image from '../imageForList/image.tsx';
+import Image from '@components/imageForList/image.tsx';
 
 /*interface ImagesListProps {}*/
 
