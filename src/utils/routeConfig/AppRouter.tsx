@@ -21,37 +21,22 @@ const AppRouter = () => (
     >
         <Routes>
             {routeConfig.map(({ path, element, children }) => (
-                <Route
-                    key={path}
-                    path={path}
-                    element={
-                        <Suspense
-                            fallback={
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        height: '100vh',
-                                        width: '100%',
-                                    }}
-                                >
-                                    <MoonLoader />
-                                </div>
-                            }
-                        >
-                            {element}
-                        </Suspense>
-                    }
-                >
+                <Route key={path} path={path} element={element}>
                     {children?.map(
-                        ({ path: childPath, element: childElement }) => (
-                            <Route
-                                key={childPath}
-                                path={childPath}
-                                element={childElement}
-                            />
-                        )
+                        ({ index, path: childPath, element: childElement }) =>
+                            index ? (
+                                <Route
+                                    key="index"
+                                    index
+                                    element={childElement}
+                                />
+                            ) : (
+                                <Route
+                                    key={childPath}
+                                    path={childPath}
+                                    element={childElement}
+                                />
+                            )
                     )}
                 </Route>
             ))}
