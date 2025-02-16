@@ -7,4 +7,20 @@
 
 .activePage{
   background-color: $orange;
+  color:$white;
+}
+
+.pagesWrapper{
+  display: flex;
+  font-size: 18px;
+  margin-top: 24px;
+  justify-self: flex-end;
+  gap:10px;
+  font-weight: 300;
+}
+
+.page{
+  padding: 3px 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }

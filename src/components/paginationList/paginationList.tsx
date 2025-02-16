@@ -5,6 +5,7 @@ import ImageCard from '../imageCard/imageCard.tsx';
 /*interface paginationListProps {}*/
 
 const PaginationList: FC = () => {
+    const arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     return (
         <div>
             <div className={styles.listContainer}>
@@ -24,7 +25,16 @@ const PaginationList: FC = () => {
                     isActive={false}
                 />
             </div>
-            <div></div>
+            <div className={styles.pagesWrapper}>
+                {arr.map((elem, index) => (
+                    <span
+                        key={index}
+                        className={`${styles.page} ${styles.activePage}`}
+                    >
+                        {elem}
+                    </span>
+                ))}
+            </div>
         </div>
     );
 };
