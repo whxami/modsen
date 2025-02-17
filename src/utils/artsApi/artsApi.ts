@@ -1,4 +1,4 @@
-import { ArtApiResponse } from '../../constants/types/artsTypes.ts';
+import { Art, ArtApiResponse } from '../../constants/types/artsTypes.ts';
 import axiosInstance from '../../shared/API/API.ts';
 
 export async function getArts(

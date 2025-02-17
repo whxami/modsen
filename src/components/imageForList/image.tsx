@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styles from './image.module.scss';
-import testImage from '@assets/testImage.png';
 import bookmark from '@assets/orangebookmark.svg';
 import { truncatTitle } from '../../utils/artsApi/truncatTitle.ts';
+import Image from '../image/image.tsx';
 
 interface imageProps {
     imageId: string;
@@ -12,7 +12,7 @@ interface imageProps {
     artist_title: string;
 }
 
-const Image: FC<imageProps> = ({
+const ImageForList: FC<imageProps> = ({
     imageId,
     artist_title,
     title,
@@ -25,11 +25,12 @@ const Image: FC<imageProps> = ({
         <div className={styles.mainContainer}>
             <div className={styles.imageInfo}>
                 <div>
-                    <img
-                        src={testImage}
-                        alt={'modsenlogo'}
-                        height={90}
-                        width={70}
+                    <Image
+                        imageId={imageId}
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                        }}
                     />
                 </div>
                 <div className={styles.textContainer}>
@@ -52,4 +53,4 @@ const Image: FC<imageProps> = ({
     );
 };
 
-export default Image;
+export default ImageForList;

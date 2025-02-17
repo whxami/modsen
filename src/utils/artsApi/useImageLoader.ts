@@ -1,62 +1,26 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { generateURL } from './generateURL.ts';
+import { useQuery } from 'react-query';
 
-interface ImageCache {
-    [key: string]: string | null;
-}
+export const useImageLoader = (identifier: string) => {
+    return useQuery(
+        ['image', identifier],
+        async () => {
+            if (!identifier) throw new Error('No identifier provided');
 
-const imageCache: ImageCache = {};
+            const url = `https://www.artic.edu/iiif/2/${identifier}/full/843,/0/default.jpg`;
 
-export const useImageLoader = (imageId?: string | null) => {
-    const [imageSrc, setImageSrc] = useState<string | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
-    console.log(imageCache);
-
-    const isMounted = useRef(true);
-
-    const imageUrl = useCallback(() => {
-        if (!imageId) return null;
-        return generateURL(imageId);
-    }, [imageId]);
-
-    useEffect(() => {
-        isMounted.current = true;
-
-        if (!imageId) {
-            setError('Invalid image ID');
-            setLoading(false);
-            return;
+            return new Promise<string>((resolve, reject) => {
+                const img = new Image();
+                img.src = url;
+                img.onload = () => resolve(url);
+                img.onerror = () => reject(new Error('Failed to load image'));
+            });
+        },
+        {
+            retry: 2,
+            staleTime: 5 * 60 * 1000,
+            cacheTime: 10 * 60 * 1000,
         }
-
-        if (imageCache[imageId]) {
-            setImageSrc(imageCache[imageId]);
-            setLoading(false);
-            return;
-        }
-
-        const img = new Image();
-        const url = imageUrl();
-
-        img.src = url!;
-        img.onload = () => {
-            if (isMounted.current) {
-                imageCache[imageId] = url;
-                setImageSrc(url);
-                setLoading(false);
-            }
-        };
-        img.onerror = () => {
-            if (isMounted.current) {
-                setError('Failed to load image');
-                setLoading(false);
-            }
-        };
-
-        return () => {
-            isMounted.current = false;
-        };
-    }, [imageId, imageUrl]);
-
-    return { imageSrc, loading, error };
+    );
 };
+
+export default useImageLoader;

@@ -2,8 +2,8 @@ import { FC } from 'react';
 import bookmark from '@assets/orangebookmark.svg';
 import bookmarkActive from '@assets/bookmarkActive.svg';
 import styles from './imageCard.module.scss';
-import { useImageLoader } from '../../utils/artsApi/useImageLoader.ts';
 import { truncatTitle } from '../../utils/artsApi/truncatTitle.ts';
+import Image from '../image/image.tsx';
 
 interface imageCardProps {
     imageId: string;
@@ -20,22 +20,17 @@ const ImageCard: FC<imageCardProps> = ({
     isPublic,
     isActive,
 }) => {
-    const { imageSrc, loading } = useImageLoader(imageId);
     const truncatedTitle = truncatTitle(title);
     return (
         <div className={styles.cardContainer}>
-            {loading ? (
-                <div className={styles.loader}></div>
-            ) : (
-                <img
-                    src={imageSrc}
-                    alt={title}
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                    }}
-                />
-            )}
+            <Image
+                style={{
+                    width: '100%',
+                    height: '100%',
+                }}
+                imageId={imageId}
+            />
+
             <div className={styles.descriptionContainer}>
                 <div className={styles.textContainer}>
                     <p title={title} className={styles.blackText}>

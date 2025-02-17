@@ -1,19 +1,15 @@
 import { FC, useState } from 'react';
-
+import { useFetching } from '../../utils/artsApi/useFetching.ts';
 import styles from './paginationList.module.scss';
 import ImageCard from '../imageCard/imageCard.tsx';
-
 import { Art } from '../../constants/types/artsTypes.ts';
-import { getArts } from '../../utils/artsApi/artsApi.ts';
-import { useFetching } from '../../utils/artsApi/useFetching.ts';
 
 const itemsPerPage = 3;
 const totalPages = 4;
 
 const PaginationList: FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const { data: artworks, loading } = useFetching<Art[]>(
-        getArts,
+    const { data: artworks, isLoading } = useFetching(
         currentPage,
         itemsPerPage
     );
@@ -22,7 +18,7 @@ const PaginationList: FC = () => {
         <div>
             <div className={styles.listContainer}>
                 {artworks &&
-                    !loading &&
+                    !isLoading &&
                     artworks.map((art: Art) => (
                         <ImageCard
                             key={art.id}

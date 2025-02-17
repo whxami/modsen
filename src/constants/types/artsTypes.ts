@@ -11,7 +11,7 @@ export interface Art {
 
 export interface Pagination {
     current_page: number;
-    next_url: string;
+    next_url: string | null;
     prev_url?: string | null;
 }
 
