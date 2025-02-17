@@ -1,5 +1,5 @@
-import MainLayout from '@pages/mainLayout/MainLayout.tsx';
-import CatalogPage from '@pages/catalogPage/catalogPage.tsx';
+import MainLayout from '../../pages/mainLayout/MainLayout.tsx';
+import CatalogPage from '../../pages/catalogPage/catalogPage.tsx';
 
 export enum AppRoutes {
     CATALOG_PAGE = 'catalog',

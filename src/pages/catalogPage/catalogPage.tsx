@@ -15,7 +15,9 @@ const catalogPage: FC = () => {
                         Here!
                     </p>
                 </div>
-                <SearchBar placeholder={'Search art, artist, work...'} />
+                <div style={{ width: '65%' }}>
+                    <SearchBar placeholder={'Search art, artist, work...'} />
+                </div>
             </div>
             <div className={styles.paginationList}>
                 <div className={styles.textPos}>

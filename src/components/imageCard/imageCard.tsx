@@ -1,29 +1,53 @@
 import { FC } from 'react';
-import testImage from '@assets/testImage.png';
 import bookmark from '@assets/orangebookmark.svg';
 import bookmarkActive from '@assets/bookmarkActive.svg';
 import styles from './imageCard.module.scss';
+import { useImageLoader } from '../../utils/artsApi/useImageLoader.ts';
 
 interface imageCardProps {
-    image: string;
-    description: string;
+    imageId: string;
+    title: string;
     isActive: boolean;
+    isPublic: boolean;
+    artist_title: string;
 }
 
-const ImageCard: FC<imageCardProps> = (props) => {
+const ImageCard: FC<imageCardProps> = ({
+    imageId,
+    artist_title,
+    title,
+    isPublic,
+    isActive,
+}) => {
+    const { imageSrc, loading } = useImageLoader(imageId);
+    const truncatedTitle =
+        title.length > 16 ? title.slice(0, 16) + '...' : title;
     return (
         <div className={styles.cardContainer}>
-            <img src={testImage} alt={'modsenlogo'} height={445} width={400} />
+            {loading ? (
+                <div className={styles.loader}></div>
+            ) : (
+                <img
+                    src={imageSrc}
+                    alt={title}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                    }}
+                />
+            )}
             <div className={styles.descriptionContainer}>
                 <div className={styles.textContainer}>
-                    <p className={styles.blackText}>
-                        Charles V, bust length...
+                    <p title={title} className={styles.blackText}>
+                        {truncatedTitle}
                     </p>
-                    <p className={styles.goldText}>Giovanni Britto</p>
-                    <strong className={styles.blackText}>Public</strong>
+                    <p className={styles.goldText}>{artist_title}</p>
+                    <strong className={styles.blackText}>
+                        {isPublic ? 'Public' : 'Private'}
+                    </strong>
                 </div>
                 <div className={styles.bookmarkContainer}>
-                    {props.isActive ? (
+                    {isActive ? (
                         <img
                             src={bookmarkActive}
                             alt={'bookmarkActive'}

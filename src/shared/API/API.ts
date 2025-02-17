@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const BASE_URL = 'https://api.artic.edu/';
+
 const axiosInstance = axios.create({
-    baseURL: 'https://api.artic.edu/api/v1',
+    baseURL: BASE_URL,
     headers: {
         'Content-Type': 'application/json',
     },

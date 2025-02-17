@@ -1,0 +1,16 @@
+@use "@styles/colors/colors" as *;
+
+@keyframes fadeColor {
+  0% {
+    background-color: $mainGray;
+  }
+  50% {
+    background-color: $gray;
+  }
+  100% {
+    background-color: $mainGray;
+  }
+}
+
+
+$skeleton: fadeColor 4s infinite alternate ease-in-out;

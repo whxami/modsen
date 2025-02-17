@@ -1,9 +1,17 @@
 @use '@styles/colors/colors' as *;
+@use '@styles/skeletonStyles/skeleton' as *;
 
 .cardContainer {
     position: relative;
     height: 515px;
-    width: 400px;
+    width: 30%;
+}
+
+.loader {
+    width: 100%;
+    height: 515px;
+    background-color: $mainGray;
+    animation: $skeleton;
 }
 
 .descriptionContainer {
@@ -16,7 +24,7 @@
     border: 1px solid $grayBorder;
     background-color: $white;
     height: 130px;
-    width: 330px;
+    width: 90%;
     justify-content: space-between;
     align-items: center;
     transform: translateY(-50%);
@@ -56,3 +64,5 @@
         font-weight: bold;
     }
 }
+
+

@@ -3,6 +3,7 @@
 .listContainer{
   display: flex;
   gap:60px;
+  min-height:515px;
 }
 
 .activePage{
@@ -13,7 +14,7 @@
 .pagesWrapper{
   display: flex;
   font-size: 18px;
-  margin-top: 24px;
+  margin-top: 100px;
   justify-self: flex-end;
   gap:10px;
   font-weight: 300;
