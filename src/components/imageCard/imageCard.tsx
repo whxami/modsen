@@ -3,6 +3,7 @@ import bookmark from '@assets/orangebookmark.svg';
 import bookmarkActive from '@assets/bookmarkActive.svg';
 import styles from './imageCard.module.scss';
 import { useImageLoader } from '../../utils/artsApi/useImageLoader.ts';
+import { truncatTitle } from '../../utils/artsApi/truncatTitle.ts';
 
 interface imageCardProps {
     imageId: string;
@@ -20,8 +21,7 @@ const ImageCard: FC<imageCardProps> = ({
     isActive,
 }) => {
     const { imageSrc, loading } = useImageLoader(imageId);
-    const truncatedTitle =
-        title.length > 16 ? title.slice(0, 16) + '...' : title;
+    const truncatedTitle = truncatTitle(title);
     return (
         <div className={styles.cardContainer}>
             {loading ? (
