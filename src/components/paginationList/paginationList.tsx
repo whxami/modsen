@@ -20,14 +20,7 @@ const PaginationList: FC = () => {
                 {artworks &&
                     !isLoading &&
                     artworks.map((art: Art) => (
-                        <ImageCard
-                            key={art.id}
-                            isPublic={art.is_public_domain}
-                            artist_title={art.artist_title}
-                            imageId={art.image_id}
-                            title={art.title}
-                            isActive={false}
-                        />
+                        <ImageCard key={art.id} art={art} />
                     ))}
             </div>
 

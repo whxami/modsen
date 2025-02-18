@@ -1,30 +1,35 @@
-import { useState } from 'react';
+import { Art } from '../../constants/types/artsTypes.ts';
 
-const loadFavorites = () => {
+const loadFavorites = (): { [key: number]: Art } => {
     const storedFavorites = sessionStorage.getItem('favorites');
-    const parsedFavorites = storedFavorites ? JSON.parse(storedFavorites) : [];
-    return Array.isArray(parsedFavorites) ? parsedFavorites : [];
+    const parsedFavorites = storedFavorites ? JSON.parse(storedFavorites) : {};
+    return typeof parsedFavorites === 'object' ? parsedFavorites : {};
 };
 
-const useFavorites = () => {
-    const [favorites, setFavorites] = useState<string[]>(loadFavorites);
+export const useFavorites = () => {
+    const isFavorite = (imageId: number): boolean => imageId in loadFavorites();
 
-    const isFavorite = (imageId: string) => favorites.includes(imageId);
-
-    const toggleFavorite = (imageId: string) => {
-        let updatedFavorites: string[];
+    const toggleFavorite = (art: Art) => {
+        const allFavorites = loadFavorites();
+        const imageId = art.id;
+        let updatedFavorites: { [key: number]: Art };
 
         if (isFavorite(imageId)) {
-            updatedFavorites = favorites.filter((id) => id !== imageId);
+            updatedFavorites = { ...allFavorites };
+            delete updatedFavorites[imageId];
+            sessionStorage.setItem(
+                'favorites',
+                JSON.stringify(updatedFavorites)
+            );
         } else {
-            updatedFavorites = [...favorites, imageId];
+            updatedFavorites = { ...allFavorites, [imageId]: art };
         }
 
-        setFavorites(updatedFavorites);
         sessionStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     };
 
-    return { toggleFavorite, isFavorite };
+    const getAllFavorites = (): Art[] => {
+        return Object.values(loadFavorites());
+    };
+    return { toggleFavorite, getAllFavorites, isFavorite };
 };
-
-export default useFavorites;

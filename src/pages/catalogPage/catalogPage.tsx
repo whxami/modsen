@@ -2,9 +2,9 @@ import { FC } from 'react';
 import styles from './catalogPage.module.scss';
 import SearchBar from '@components/searchBar/searchBar.tsx';
 import PaginationList from '@components/paginationList/paginationList.tsx';
-import ImagesList from '@components/imagesList/imagesList.tsx';
+import { ImagesListFromFetching } from '../../components/imagesList/imagesList.tsx';
 
-const catalogPage: FC = () => {
+const CatalogPage: FC = () => {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.searchContainer}>
@@ -31,10 +31,10 @@ const catalogPage: FC = () => {
                     <p className={styles.lightGoldText}>Here some more</p>
                     <p className={styles.lightBlackText}>Other works for you</p>
                 </div>
-                <ImagesList />
+                <ImagesListFromFetching />
             </div>
         </div>
     );
 };
 
-export default catalogPage;
+export default CatalogPage;

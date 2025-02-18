@@ -1,0 +1,18 @@
+@use "@styles/colors/colors" as *;
+
+.bookmarkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: $bookmarkBackground;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.activeBookmark{
+  background: $bookmarkActiveBackground;
+}
