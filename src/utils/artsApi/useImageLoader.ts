@@ -4,8 +4,6 @@ export const useImageLoader = (identifier: string) => {
     return useQuery(
         ['image', identifier],
         async () => {
-            if (!identifier) throw new Error('No identifier provided');
-
             const url = `https://www.artic.edu/iiif/2/${identifier}/full/843,/0/default.jpg`;
 
             return new Promise<string>((resolve, reject) => {
