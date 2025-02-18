@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import Image from '@components/imageForList/image.tsx';
+import Image from '@components/imageForList/imageForList.tsx';
 import styles from './imagesList.module.scss';
-import { useFetching } from '../../utils/artsApi/useFetching.ts';
+import { useFetching } from '../../utils/artsApi/fetchingHooks.ts';
 import { Art } from '../../constants/types/artsTypes.ts';
 
 const currentPage = 10; // для списка "остальные работы"

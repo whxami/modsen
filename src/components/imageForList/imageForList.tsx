@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from './image.module.scss';
+import styles from './imageForList.module.scss';
 import { truncatTitle } from '../../utils/artsApi/truncatTitle.ts';
 import Image from '../image/image.tsx';
 import Bookmark from '../bookmark/bookmark.tsx';

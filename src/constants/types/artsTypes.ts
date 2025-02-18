@@ -19,3 +19,7 @@ export interface ArtApiResponse {
     data: Art[];
     pagination: Pagination;
 }
+
+export interface singleArtApiResponse {
+    data: Art;
+}

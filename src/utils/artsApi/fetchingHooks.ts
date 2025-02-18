@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { getArts } from './artsApi.ts';
+import { fetchArt, getArts } from './artsApi.ts';
 
 export function useFetching(currentPage = 1, itemsPerPage = 3) {
     return useQuery(
@@ -11,4 +11,12 @@ export function useFetching(currentPage = 1, itemsPerPage = 3) {
             cacheTime: 10 * 60 * 1000,
         }
     );
+}
+
+export function useFetchArt(id: string) {
+    return useQuery(['artwork', id], async () => fetchArt(id), {
+        keepPreviousData: true,
+        staleTime: 5 * 60 * 1000,
+        cacheTime: 10 * 60 * 1000,
+    });
 }

@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { useFetching } from '../../utils/artsApi/useFetching.ts';
+import { useFetching } from '../../utils/artsApi/fetchingHooks.ts';
 import styles from './paginationList.module.scss';
 import ImageCard from '../imageCard/imageCard.tsx';
 import { Art } from '../../constants/types/artsTypes.ts';
