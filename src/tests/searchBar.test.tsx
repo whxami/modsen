@@ -16,7 +16,7 @@ jest.mock('@utils/routeConfig/useNavigate', () => ({
 
 describe('SearchBar', () => {
     beforeEach(() => {
-        jest.useFakeTimers(); // Мокаем таймеры для debounce
+        jest.useFakeTimers();
         (useFetching as jest.Mock).mockReturnValue({
             data: [
                 { id: 1, title: 'Starry Night', artist_title: 'Van Gogh' },
@@ -34,8 +34,8 @@ describe('SearchBar', () => {
     });
 
     afterEach(() => {
-        jest.runOnlyPendingTimers(); // Завершаем отложенные таймеры
-        jest.useRealTimers(); // Возвращаем реальную работу таймеров
+        jest.runOnlyPendingTimers();
+        jest.useRealTimers();
     });
 
     it('рендерит инпут поиска', () => {
@@ -49,11 +49,11 @@ describe('SearchBar', () => {
         render(<SearchBar />);
         const input = screen.getByPlaceholderText(/search artist, art, work/i);
 
-        fireEvent.focus(input); // Устанавливаем isFocused = true
+        fireEvent.focus(input);
         fireEvent.change(input, { target: { value: 'Starry' } });
 
         act(() => {
-            jest.runAllTimers(); // Принудительно выполняем debounce
+            jest.runAllTimers();
         });
 
         expect(await screen.findByText(/starry night/i)).toBeInTheDocument();
