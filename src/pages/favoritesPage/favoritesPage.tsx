@@ -3,19 +3,20 @@ import { ImagesListFromFavorites } from '@components/imagesList/imagesList.tsx';
 import { useFavorites } from '@utils/artsApi/useFavorites.ts';
 import styles from './favoritesPage.module.scss';
 import Select from '@components/select/select.tsx';
+import SortOrder from '@components/select/selectEnum.ts';
 
 const FavoritesPage: FC = () => {
     const { getAllFavorites } = useFavorites();
     const favorites = getAllFavorites();
-    const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | 'none'>('none');
+    const [sortOrder, setSortOrder] = useState<SortOrder>(SortOrder.NONE);
 
     const sortedFavorites = useMemo(() => {
-        if (sortOrder === 'none') {
+        if (sortOrder === SortOrder.NONE) {
             return favorites;
         }
 
         return [...favorites].sort((a, b) => {
-            if (sortOrder === 'asc') {
+            if (sortOrder === SortOrder.ASC) {
                 return a.title.localeCompare(b.title);
             }
             return b.title.localeCompare(a.title);

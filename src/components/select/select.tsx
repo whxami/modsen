@@ -1,11 +1,6 @@
 import { FC, useState, useCallback } from 'react';
 import styles from './select.module.scss';
-
-enum SortOrder {
-    ASC = 'asc',
-    DESC = 'desc',
-    NONE = 'none',
-}
+import SortOrder from '@components/select/selectEnum.ts';
 
 interface SelectProps {
     onSelect: (sortOrder: SortOrder) => void;
