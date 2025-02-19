@@ -10,14 +10,12 @@ const Footer: FC = () => {
                 <img
                     src={museumLogo}
                     alt="museumLogo"
-                    width={200}
-                    height={60}
+                    className={styles.museumLogo}
                 />
                 <img
                     src={modsenLogo}
                     alt="modsenLogo"
-                    width={165}
-                    height={60}
+                    className={styles.modsenLogo}
                 />
             </div>
         </footer>

@@ -1,8 +1,9 @@
 import { FC } from 'react';
-import Image from '@components/imageForList/imageForList.tsx';
+import ImageForList from '@components/imageForList/imageForList.tsx';
 import styles from './imagesList.module.scss';
-import { useFetching } from '../../utils/artsApi/fetchingHooks.ts';
-import { Art } from '../../constants/types/artsTypes.ts';
+import { useFetching } from '@utils/artsApi/fetchingHooks.ts';
+import { Art } from '@constants/types/artsTypes.ts';
+import { MoonLoader } from 'react-spinners';
 
 const currentPage = 10; // для списка "остальные работы"
 const itemsPerPage = 9;
@@ -10,7 +11,7 @@ const itemsPerPage = 9;
 const buildTree = (arts: Art[]) => (
     <div className={styles.imagesGrid}>
         {arts.map((elem) => (
-            <Image key={elem.id} art={elem} />
+            <ImageForList key={elem.id} art={elem} />
         ))}
     </div>
 );
@@ -21,7 +22,7 @@ export const ImagesListFromFetching: FC = () => {
         itemsPerPage
     );
 
-    if (isLoading) return <p>Загрузка...</p>;
+    if (isLoading) return <MoonLoader />;
     if (!artworks || artworks.length === 0) return <p>Нет доступных работ</p>;
 
     return buildTree(artworks);

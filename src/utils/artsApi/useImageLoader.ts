@@ -1,10 +1,11 @@
 import { useQuery } from 'react-query';
+import { generateURL } from './generateURL.ts';
 
 export const useImageLoader = (identifier: string) => {
     return useQuery(
         ['image', identifier],
         async () => {
-            const url = `https://www.artic.edu/iiif/2/${identifier}/full/843,/0/default.jpg`;
+            const url = generateURL(identifier);
 
             return new Promise<string>((resolve, reject) => {
                 const img = new Image();

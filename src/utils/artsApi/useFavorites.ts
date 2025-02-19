@@ -1,4 +1,4 @@
-import { Art } from '../../constants/types/artsTypes.ts';
+import { Art } from '@constants/types/artsTypes.ts';
 
 const loadFavorites = (): { [key: number]: Art } => {
     const storedFavorites = sessionStorage.getItem('favorites');

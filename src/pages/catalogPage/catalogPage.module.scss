@@ -9,10 +9,13 @@
   width:100%;
 }
 
+.searchBarWrapper{
+  width:65%;
+}
+
 .paginationList{
   width: 100%;
   margin-bottom: 120px;
-  height: 700px;
 }
 
 .listOfArts{
@@ -41,6 +44,10 @@
   align-items: center;
   width: 65%;
   justify-self: center;
+
+  @media (max-width: 450px) {
+    width: 95%;
+  }
 }
 
 .lightGoldText{

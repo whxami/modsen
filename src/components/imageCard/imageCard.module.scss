@@ -3,13 +3,11 @@
 
 .cardContainer {
     position: relative;
-    height: 515px;
     width: 30%;
 }
 
 .loader {
     width: 100%;
-    height: 515px;
     background-color: $mainGray;
     animation: $skeleton;
 }
@@ -27,8 +25,29 @@
     width: 90%;
     justify-content: space-between;
     align-items: center;
-    transform: translateY(-50%);
+    margin-top: -65px;
     transform-origin: bottom center;
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        margin-top: -30px;
+        padding: 5px 6px;
+        height:160px
+    }
+
+    @media (max-width: 430px) {
+        flex-direction: column;
+        padding: 5px 6px;
+        margin-top: -20px;
+    }
+}
+
+.imageWrapper{
+    display: flex;
+    background-color: $mainGray;
+    height: 30vw;
+    z-index: -2;
+    align-items: center;
 }
 
 .bookmarkContainer {
@@ -54,6 +73,15 @@
     margin-bottom: 20px;
     font-weight: bold;
     font-size: 15px;
+    @media (max-width: 1024px) {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 430px) {
+        font-size: 8px;
+        margin-bottom: 5px;
+    }
 }
 
 .blackText {
@@ -62,6 +90,20 @@
         margin-bottom: 10px;
         font-size: 18px;
         font-weight: bold;
+        @media (max-width: 1024px) {
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 430px) {
+            font-size: 10px;
+        }
+    }
+    @media (max-width: 1024px) {
+        font-size: 12px;
+    }
+
+    @media (max-width: 430px) {
+        font-size: 9px;
     }
 }
 

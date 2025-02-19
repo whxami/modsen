@@ -12,8 +12,12 @@
     "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx,json,css,scss,md}'"
   },
   "dependencies": {
+    "-": "^0.0.1",
+    "@types/lodash": "^4.17.15",
     "axios": "^1.7.9",
     "formik": "^2.4.6",
+    "lodash": "^4.17.21",
+    "lodash.debounce": "^4.0.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-query": "^3.39.3",

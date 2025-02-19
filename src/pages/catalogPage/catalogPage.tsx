@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styles from './catalogPage.module.scss';
 import SearchBar from '@components/searchBar/searchBar.tsx';
 import PaginationList from '@components/paginationList/paginationList.tsx';
-import { ImagesListFromFetching } from '../../components/imagesList/imagesList.tsx';
+import { ImagesListFromFetching } from '@components/imagesList/imagesList.tsx';
 
 const CatalogPage: FC = () => {
     return (
@@ -15,7 +15,7 @@ const CatalogPage: FC = () => {
                         Here!
                     </p>
                 </div>
-                <div style={{ width: '65%' }}>
+                <div className={styles.searchBarWrapper}>
                     <SearchBar placeholder={'Search art, artist, work...'} />
                 </div>
             </div>

@@ -2,8 +2,8 @@ import { FC, useState } from 'react';
 import bookmarkActive from '@assets/bookmarkActive.svg';
 import bookmark from '@assets/bookmark.svg';
 import styles from './bookmark.module.scss';
-import { Art } from '../../constants/types/artsTypes.ts';
-import { useFavorites } from '../../utils/artsApi/useFavorites.ts';
+import { Art } from '@constants/types/artsTypes.ts';
+import { useFavorites } from '@utils/artsApi/useFavorites.ts';
 
 interface BookmarkProps {
     art: Art;
@@ -26,8 +26,8 @@ const Bookmark: FC<BookmarkProps> = ({ art }) => {
             <img
                 src={favorite ? bookmarkActive : bookmark}
                 alt={favorite ? 'bookmarked' : 'bookmark'}
-                height={24}
-                width={24}
+                height={'50%'}
+                width={'50%'}
             />
         </div>
     );
