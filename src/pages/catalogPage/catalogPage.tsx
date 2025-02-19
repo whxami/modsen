@@ -16,7 +16,7 @@ const CatalogPage: FC = () => {
                     </p>
                 </div>
                 <div className={styles.searchBarWrapper}>
-                    <SearchBar placeholder={'Search art, artist, work...'} />
+                    <SearchBar />
                 </div>
             </div>
             <div className={styles.paginationList}>

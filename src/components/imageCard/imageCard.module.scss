@@ -86,6 +86,7 @@
 
 .blackText {
     color: $mainGray;
+    text-overflow: ellipsis;
     &:first-child {
         margin-bottom: 10px;
         font-size: 18px;

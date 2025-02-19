@@ -6,12 +6,8 @@ import styles from './searchBar.module.scss';
 import searchIcon from '@assets/searchicon.svg';
 import { useFetching } from '@utils/artsApi/fetchingHooks.ts';
 import { Art } from '@constants/types/artsTypes.ts';
-import { useNavigate } from 'react-router-dom';
-import { AppRoutes, RoutePath } from '@utils/routeConfig/routeConfig.tsx';
-
-interface SearchBarProps {
-    placeholder: string;
-}
+import { AppRoutes } from '@utils/routeConfig/routeConfig.tsx';
+import { useAppNavigation } from '@utils/routeConfig/useNavigate.tsx';
 
 const searchSchema = z.object({
     query: z
@@ -20,16 +16,11 @@ const searchSchema = z.object({
         .max(15, 'Максимум 15 символов'),
 });
 
-const SearchBar: FC<SearchBarProps> = ({ placeholder }) => {
+const SearchBar: FC = () => {
     const [searchResults, setSearchResults] = useState<Art[]>([]);
     const [isFocused, setIsFocused] = useState(false);
     const { data: artworks } = useFetching(1, 100);
-    const navigate = useNavigate();
-    const handleNavigate = (id: number) => {
-        navigate(
-            RoutePath[AppRoutes.ART_INFO_PAGE].replace(':id', id.toString())
-        );
-    };
+    const { handleNavigate } = useAppNavigation();
     const handleSearch = useCallback(
         async (query: string) => {
             const result = searchSchema.safeParse({ query });
@@ -81,7 +72,7 @@ const SearchBar: FC<SearchBarProps> = ({ placeholder }) => {
                         <input
                             type="text"
                             name="query"
-                            placeholder={placeholder}
+                            placeholder="Search artist, art, work..."
                             className={styles.searchBar}
                             value={formik.values.query}
                             onChange={(e) => {
@@ -106,7 +97,9 @@ const SearchBar: FC<SearchBarProps> = ({ placeholder }) => {
                 <div className={styles.resultList}>
                     {searchResults.map((art) => (
                         <div
-                            onClick={() => handleNavigate(art.id)}
+                            onClick={() =>
+                                handleNavigate(AppRoutes.ART_INFO_PAGE, art.id)
+                            }
                             className={styles.resultElement}
                             key={art.id}
                         >

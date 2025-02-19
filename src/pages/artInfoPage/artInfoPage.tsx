@@ -12,7 +12,7 @@ function concatStyles(...str: string[]) {
 
 const ArtInfoPage: FC = () => {
     const { id } = useParams();
-    const { data: artwork, isLoading } = useFetchArt(id || '156577');
+    const { data: artwork, isLoading } = useFetchArt(id);
     if (isLoading)
         return (
             <div>

@@ -7,6 +7,7 @@ module.exports = {
     moduleNameMapper: {
         '@components/(.*)': '<rootDir>/src/components/$1',
         '@utils/(.*)': '<rootDir>/src/utils/$1',
+        '@pages/(.*)': '<rootDir>/src/pages/$1',
         '@constants/(.*)': '<rootDir>/src/constants/$1',
         '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
         '\\.(svg|png|jpg|jpeg|gif|webp|avif)$': '<rootDir>/__mocks__/fileMock.js',

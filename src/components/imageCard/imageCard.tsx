@@ -4,8 +4,8 @@ import { truncatTitle } from '@utils/artsApi/truncatTitle.ts';
 import Image from '@components/image/image.tsx';
 import Bookmark from '@components/bookmark/bookmark.tsx';
 import { Art } from '@constants/types/artsTypes.ts';
-import { useNavigate } from 'react-router-dom';
-import { AppRoutes, RoutePath } from '@utils/routeConfig/routeConfig.tsx';
+import { useAppNavigation } from '@utils/routeConfig/useNavigate.tsx';
+import { AppRoutes } from '@utils/routeConfig/routeConfig.tsx';
 
 interface ImageCardProps {
     art: Art;
@@ -13,13 +13,7 @@ interface ImageCardProps {
 
 const ImageCard: FC<ImageCardProps> = ({ art }) => {
     const truncatedTitle = truncatTitle(art.title);
-    const navigate = useNavigate();
-
-    const handleNavigate = (id: number) => {
-        navigate(
-            RoutePath[AppRoutes.ART_INFO_PAGE].replace(':id', id.toString())
-        );
-    };
+    const { handleNavigate } = useAppNavigation();
     return (
         <div className={styles.cardContainer}>
             <div className={styles.imageWrapper}>
@@ -32,7 +26,7 @@ const ImageCard: FC<ImageCardProps> = ({ art }) => {
                     }}
                     imageId={art.image_id}
                     onClick={() => {
-                        handleNavigate(art.id);
+                        handleNavigate(AppRoutes.ART_INFO_PAGE, art.id);
                     }}
                 />
             </div>

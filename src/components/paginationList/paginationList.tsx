@@ -1,15 +1,18 @@
 import { FC, useEffect, useState } from 'react';
-import { useFetching } from '../../utils/artsApi/fetchingHooks.ts';
+import { useFetching } from '@utils/artsApi/fetchingHooks.ts';
 import styles from './paginationList.module.scss';
 import ImageCard from '@components/imageCard/imageCard.tsx';
 import { Art } from '@constants/types/artsTypes.ts';
 import { MoonLoader } from 'react-spinners';
+import { usePagination } from '@utils/artsApi/usePagination.ts';
 
 const itemsPerPage = 3;
 const totalPages = 4;
+const pagesArray = [1, 2, 3, 4];
 
 const PaginationList: FC = () => {
-    const [currentPage, setCurrentPage] = useState(1);
+    const { currentPage, goToPreviousPage, goToNextPage, goToPage } =
+        usePagination(totalPages);
     const [artworks, setArtworks] = useState<Art[] | null>(null);
     const [loading, setLoading] = useState(true);
     const { data } = useFetching(currentPage, itemsPerPage);
@@ -25,24 +28,6 @@ const PaginationList: FC = () => {
             setLoading(false);
         }
     }, [data]);
-
-    const goToPreviousPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
-    };
-
-    const goToNextPage = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
-        }
-    };
-
-    const goToPage = (page: number) => {
-        if (page !== currentPage && page >= 1 && page <= totalPages) {
-            setCurrentPage(page);
-        }
-    };
 
     return (
         <div className={styles.listWrapper}>
@@ -65,10 +50,7 @@ const PaginationList: FC = () => {
                         {'<'}
                     </span>
                 )}
-                {Array.from(
-                    { length: totalPages },
-                    (_, index) => index + 1
-                ).map((page) => (
+                {pagesArray.map((page) => (
                     <span
                         key={page}
                         className={`${styles.page} ${currentPage === page ? styles.activePage : ''}`}

@@ -4,8 +4,8 @@ import { truncatTitle } from '@utils/artsApi/truncatTitle.ts';
 import Image from '@components/image/image.tsx';
 import Bookmark from '@components/bookmark/bookmark.tsx';
 import { Art } from '@constants/types/artsTypes.ts';
-import { useNavigate } from 'react-router-dom';
-import { AppRoutes, RoutePath } from '@utils/routeConfig/routeConfig.tsx';
+import { AppRoutes } from '@utils/routeConfig/routeConfig.tsx';
+import { useAppNavigation } from '@utils/routeConfig/useNavigate.tsx';
 
 interface imageProps {
     art: Art;
@@ -13,18 +13,13 @@ interface imageProps {
 
 const ImageForList: FC<imageProps> = ({ art }) => {
     const truncatedTitle = truncatTitle(art.title);
-    const navigate = useNavigate();
+    const { handleNavigate } = useAppNavigation();
 
-    const handleNavigate = (id: number) => {
-        navigate(
-            RoutePath[AppRoutes.ART_INFO_PAGE].replace(':id', id.toString())
-        );
-    };
     return (
         <div className={styles.mainContainer}>
             <div
                 onClick={() => {
-                    handleNavigate(art.id);
+                    handleNavigate(AppRoutes.ART_INFO_PAGE, art.id);
                 }}
                 className={styles.imageInfo}
             >
