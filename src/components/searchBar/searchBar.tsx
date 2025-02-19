@@ -7,7 +7,7 @@ import searchIcon from '@assets/searchicon.svg';
 import { useFetching } from '@utils/artsApi/fetchingHooks.ts';
 import { Art } from '@constants/types/artsTypes.ts';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes, RoutePath } from '@/utils/routeConfig/routeConfig.tsx';
+import { AppRoutes, RoutePath } from '@utils/routeConfig/routeConfig.tsx';
 
 interface SearchBarProps {
     placeholder: string;
