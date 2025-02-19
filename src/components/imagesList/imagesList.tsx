@@ -8,7 +8,7 @@ import { MoonLoader } from 'react-spinners';
 const currentPage = 10; // для списка "остальные работы"
 const itemsPerPage = 9;
 
-const buildTree = (arts: Art[]) => (
+const buildList = (arts: Art[]) => (
     <div className={styles.imagesGrid}>
         {arts.map((elem) => (
             <ImageForList key={elem.id} art={elem} />
@@ -25,11 +25,11 @@ export const ImagesListFromFetching: FC = () => {
     if (isLoading) return <MoonLoader />;
     if (!artworks || artworks.length === 0) return <p>Нет доступных работ</p>;
 
-    return buildTree(artworks);
+    return buildList(artworks);
 };
 
 export const ImagesListFromFavorites: FC<{ favorites: Art[] }> = ({
     favorites,
 }) => {
-    return buildTree(favorites);
+    return buildList(favorites);
 };

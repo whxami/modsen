@@ -1,18 +1,15 @@
 import { FC } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import bookmark from '@assets/bookmark.svg';
 import logo from '@assets/museumlogo.svg';
 import Home from '@assets/Home.svg';
 import styles from './header.module.scss';
-import { AppRoutes, RoutePath } from '@utils/routeConfig/routeConfig.tsx';
+import { AppRoutes } from '@utils/routeConfig/routeConfig.tsx';
+import { useAppNavigation } from '@utils/routeConfig/useNavigate.tsx';
 
 const Header: FC = () => {
-    const navigate = useNavigate();
     const location = useLocation();
-
-    const handleNavigate = (route: AppRoutes) => {
-        navigate(RoutePath[route]);
-    };
+    const { handleNavigate } = useAppNavigation();
 
     return (
         <header className={styles.header}>

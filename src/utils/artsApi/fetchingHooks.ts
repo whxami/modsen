@@ -13,10 +13,18 @@ export function useFetching(currentPage = 1, itemsPerPage = 3) {
     );
 }
 
-export function useFetchArt(id: string) {
-    return useQuery(['artwork', id], async () => fetchArt(id), {
-        keepPreviousData: true,
-        staleTime: 5 * 60 * 1000,
-        cacheTime: 10 * 60 * 1000,
-    });
+export function useFetchArt(id?: string) {
+    return useQuery(
+        ['artwork', id],
+        async () => {
+            if (!id) return null;
+            return fetchArt(id);
+        },
+        {
+            enabled: !!id,
+            keepPreviousData: true,
+            staleTime: 5 * 60 * 1000,
+            cacheTime: 10 * 60 * 1000,
+        }
+    );
 }
