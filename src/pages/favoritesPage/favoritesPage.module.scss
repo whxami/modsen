@@ -1,7 +1,17 @@
 .imagesListWrapper{
   width: 65%;
-  margin: 120px 0;
+  display: flex;
+  flex-direction: column;
+  gap:50px;
+  @media (max-width: 1024px) {
+    margin-top:20px;
+  }
   @media (max-width: 430px) {
     width: 100%;
+    gap:20px;
   }
+}
+
+.selectWrapper{
+  align-self: center;
 }
