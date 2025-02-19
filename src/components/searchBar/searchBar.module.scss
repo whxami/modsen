@@ -1,0 +1,69 @@
+@use '@styles/colors/colors' as *;
+
+.searchContainer {
+    border-radius: 16px;
+    background: $lightGray;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.inputWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.errorText{
+    color: $lightOrange;
+    font-size: 12px;
+    margin-bottom:20px;
+    justify-self: center;
+}
+
+.searchBar {
+    background: transparent;
+    border: none;
+    color: $grayText;
+    font-size: 16px;
+    width: 80%;
+    &:focus {
+        outline: none;
+    }
+}
+
+.searchIcon {
+    height: 32px;
+    width: 32px;
+}
+
+.resultList {
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 8px;
+    background: $lightGray;
+    max-height: 200px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.resultElement {
+    padding: 8px 12px;
+    background: $white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: $mainGray;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: $lightOrange;
+        color: $white;
+    }
+}

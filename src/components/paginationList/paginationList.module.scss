@@ -1,0 +1,63 @@
+@use "@styles/colors/colors" as *;
+
+.listWrapper{
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  @media (max-width: 430px){
+    width: 90%;
+    flex-direction: column;
+    justify-self: center;
+  }
+}
+
+.listContainer{
+  display: flex;
+  margin-bottom: 24px;
+  gap:60px;
+  align-items: center;
+  height: 30wh;
+  justify-content: center;
+
+  @media (max-width: 1024px) {
+    gap:20px;
+  }
+
+  @media (max-width: 430px) {
+    gap:5px;
+  }
+}
+
+.activePage{
+  background-color: $orange;
+  color:$white;
+}
+
+.pagesWrapper{
+  display: flex;
+  font-size: 18px;
+  margin-top: 100px;
+  justify-content: flex-end;
+  gap:10px;
+  font-weight: 300;
+
+  @media (max-width: 1024px) {
+    margin-top: 120px;
+  }
+  @media (max-width: 430px) {
+    margin-top: 140px;
+  }
+}
+
+.page{
+  padding: 3px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.loader{
+  display: flex;
+  align-items: center;
+  height: 30vw;
+  justify-items: center;
+}

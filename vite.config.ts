@@ -4,13 +4,6 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@styles/colors/colors.scss"; @import "@styles/fonts/fonts.scss";`,
-      },
-    },
-  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
@@ -19,6 +12,8 @@ export default defineConfig({
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@assets': path.resolve(__dirname, 'src/assets'),
       '@styles': path.resolve(__dirname, 'src/shared/styles'),
+      '@constants': path.resolve(__dirname, 'src/constants'),
+      '@shared': path.resolve(__dirname, 'src/shared'),
     },
   },
 });

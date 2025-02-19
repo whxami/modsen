@@ -1,0 +1,110 @@
+@use '@styles/colors/colors' as *;
+@use '@styles/skeletonStyles/skeleton' as *;
+
+.cardContainer {
+    position: relative;
+    width: 30%;
+}
+
+.loader {
+    width: 100%;
+    background-color: $mainGray;
+    animation: $skeleton;
+}
+
+.descriptionContainer {
+    padding: 17px 24px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    display: flex;
+    justify-self: center;
+    border: 1px solid $grayBorder;
+    background-color: $white;
+    height: 130px;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -65px;
+    transform-origin: bottom center;
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        margin-top: -30px;
+        padding: 5px 6px;
+        height:160px
+    }
+
+    @media (max-width: 430px) {
+        flex-direction: column;
+        padding: 5px 6px;
+        margin-top: -20px;
+    }
+}
+
+.imageWrapper{
+    display: flex;
+    background-color: $mainGray;
+    height: 30vw;
+    z-index: -2;
+    align-items: center;
+}
+
+.bookmarkContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: $bookmarkBackground;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.goldText {
+    color: $lightOrange;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    @media (max-width: 1024px) {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 430px) {
+        font-size: 8px;
+        margin-bottom: 5px;
+    }
+}
+
+.blackText {
+    color: $mainGray;
+    &:first-child {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        @media (max-width: 1024px) {
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 430px) {
+            font-size: 10px;
+        }
+    }
+    @media (max-width: 1024px) {
+        font-size: 12px;
+    }
+
+    @media (max-width: 430px) {
+        font-size: 9px;
+    }
+}
+
+
