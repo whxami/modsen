@@ -1,3 +1,5 @@
+@use '@styles/colors/colors' as *;
+
 .pageWrapper{
   display: flex;
   flex-direction: column;
@@ -9,4 +11,5 @@
   flex:1;
   justify-content: center;
   align-items: center;
+  background-color: $background;
 }

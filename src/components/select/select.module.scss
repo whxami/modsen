@@ -1,0 +1,59 @@
+@use '@styles/colors/colors' as *;
+
+.selectContainer {
+  position: relative;
+  width: 200px;
+  font-size: 15px;
+}
+
+.selectButton {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid $lightGray;
+  background: $white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  height: 40px;
+
+  &:hover {
+    background: #f0f0f0;
+  }
+}
+
+
+.selectDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid $mainGray;
+  background: $white;
+  margin-top: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.selectOption {
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: $lightOrange;
+  }
+
+  &.selected {
+    background: $white;
+    font-weight: bold;
+  }
+}
+
+.disabled{
+  background: $gray;
+  color: $mainGray;
+}
