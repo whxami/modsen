@@ -4,7 +4,7 @@ export interface Art {
     date_display: string;
     place_of_origin: string;
     dimensions: string;
-    is_public_domain: true;
+    is_public_domain: boolean;
     artist_title: string;
     image_id: string;
 }
