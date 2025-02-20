@@ -25,9 +25,11 @@ const FavoritesPage: FC = () => {
 
     return (
         <div className={styles.imagesListWrapper}>
-            <div className={styles.selectWrapper}>
-                <Select onSelect={setSortOrder} />
-            </div>
+            {favorites.length > 0 && (
+                <div className={styles.selectWrapper}>
+                    <Select onSelect={setSortOrder} />
+                </div>
+            )}
             <ImagesListFromFavorites favorites={sortedFavorites} />
         </div>
     );
