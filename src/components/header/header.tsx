@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useLocation } from 'react-router-dom';
 import bookmark from '@assets/bookmark.svg';
 import logo from '@assets/museumlogo.svg';
-import Home from '@assets/Home.svg';
+import Home from '@assets/home.svg';
 import styles from './header.module.scss';
 import { AppRoutes } from '@utils/routeConfig/routeConfig.tsx';
 import { useAppNavigation } from '@utils/routeConfig/useNavigate.tsx';
